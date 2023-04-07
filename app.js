@@ -1,48 +1,62 @@
-// // Get references to the relevant HTML elements
-// const netStrengthParagraph = document.getElementById('net-strength')!;
-// const attackerCheckboxes = document.querySelectorAll<HTMLInputElement>('.attacker input[type="checkbox"]');
-// const defenderCheckboxes = document.querySelectorAll<HTMLInputElement>('.defender input[type="checkbox"]');
-// // Initialize the net strength to 0
-// let netStrength = 0;
-// netStrengthParagraph.textContent = netStrength.toString();
-// // Add event listeners to the attacker checkboxes
-// attackerCheckboxes.forEach(function(checkbox) {
-//   checkbox.addEventListener('change', function() {
-//     if (checkbox.checked) {
-//       netStrength += 1;
-//     } else {
-//       netStrength -= 1;
-//     }
-//     netStrengthParagraph.textContent = netStrength.toString();
-//   });
-// });
-// // Add event listeners to the defender checkboxes
-// defenderCheckboxes.forEach(function(checkbox) {
-//   checkbox.addEventListener('change', function() {
-//     if (checkbox.checked) {
-//       netStrength -= 1;
-//     } else {
-//       netStrength += 1;
-//     }
-//     netStrengthParagraph.textContent = netStrength.toString();
-//   });
-// });
+/* declare constants at top for easy future balencing updates */
+var Helmet_Attack_Value = 1;
+var Helmet_Defense_Value = 2;
+var Spear_Attack_Value = 1;
+var Spear_Defense_Value = 3;
+var Spear_Bonus_Against_Mounted = 3;
+var Mounted_Attack_Value = 4;
+var Mounted_Defense_Value = 4;
 document.addEventListener('DOMContentLoaded', function () {
     var netStrengthParagraph = document.getElementById('net-strength');
     var attackerCheckboxes = document.querySelectorAll('.attacker input[type="checkbox"]');
     var defenderCheckboxes = document.querySelectorAll('.defender input[type="checkbox"]');
     function updateNetStrength() {
         var netStrength = 0;
+        var attackerStrength = 0;
+        var defenderStrength = 0;
         attackerCheckboxes.forEach(function (checkbox) {
             if (checkbox.checked) {
-                netStrength += 1;
+                if (checkbox.id === 'attackHelmet') {
+                    attackerStrength += Helmet_Attack_Value;
+                }
+                else if (checkbox.id === 'attackSpear') {
+                    attackerStrength += Spear_Attack_Value;
+                    var defenseMountedCheckbox = document.getElementById('defenseMounted');
+                    if (defenseMountedCheckbox.checked) { /*checks if the opposing mounted is already checked */
+                        attackerStrength += Spear_Bonus_Against_Mounted;
+                    }
+                }
+                else if (checkbox.id === 'attackMounted') {
+                    attackerStrength += Mounted_Attack_Value;
+                    var defenseSpearCheckbox = document.getElementById('defenseSpear');
+                    if (defenseSpearCheckbox.checked) { /*checks if the opposing spear is already checked */
+                        defenderStrength += Spear_Bonus_Against_Mounted;
+                    }
+                }
             }
         });
         defenderCheckboxes.forEach(function (checkbox) {
             if (checkbox.checked) {
-                netStrength -= 1;
+                if (checkbox.id === 'defenseHelmet') {
+                    defenderStrength += Helmet_Defense_Value;
+                }
+                else if (checkbox.id === 'defenseSpear') {
+                    defenderStrength += Spear_Defense_Value;
+                    var defenseMountedCheckbox = document.getElementById('attackMounted');
+                    if (defenseMountedCheckbox.checked) { /*checks if the attack is mounted is already checked */
+                        defenderStrength += Spear_Bonus_Against_Mounted;
+                    }
+                }
+                else if (checkbox.id === 'defenseMounted') {
+                    defenderStrength += Mounted_Defense_Value;
+                    var defenseSpearCheckbox = document.getElementById('attackSpear');
+                    if (defenseSpearCheckbox.checked) { /*checks if the opposing spear is already checked */
+                        attackerStrength += Spear_Bonus_Against_Mounted;
+                    }
+                }
             }
         });
+        netStrength = attackerStrength - defenderStrength;
         netStrengthParagraph.textContent = netStrength.toString();
     }
     attackerCheckboxes.forEach(function (checkbox) {
