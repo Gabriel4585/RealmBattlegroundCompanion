@@ -4,17 +4,21 @@
   }
   
   .left-section, .right-section {
-    width: 40%;
+    width: 35%; /*Width of each section*/
+  }
+
+  .middle-section {
+    width: 30%; /*Width of each section*/
   }
   
   .button-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px; /*changes the size between the buttons in the grid*/
+    grid-gap: 10px; /*changes the size of verticle space between the buttons in the grid*/
   }
   
   .button {
-    width: 100%;
+    width: 75%;
     height: 50px;
     background-color: #ccc;
     border: none;
