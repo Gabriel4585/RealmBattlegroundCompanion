@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         });
+        /* All special button interactions handled in attacker section*/
         defenderCheckboxes.forEach(function (checkbox) {
             if (checkbox.checked) {
                 if (checkbox.id === 'defenseHelmet') {
@@ -42,17 +43,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 else if (checkbox.id === 'defenseSpear') {
                     defenderStrength += Spear_Defense_Value;
-                    var defenseMountedCheckbox = document.getElementById('attackMounted');
-                    if (defenseMountedCheckbox.checked) { /*checks if the attack is mounted is already checked */
-                        defenderStrength += Spear_Bonus_Against_Mounted;
-                    }
+                    // const defenseMountedCheckbox = document.getElementById('attackMounted') as HTMLInputElement;
+                    // if(defenseMountedCheckbox.checked){ /*checks if the attack is mounted is already checked */
+                    //     defenderStrength += Spear_Bonus_Against_Mounted;
+                    // }
                 }
                 else if (checkbox.id === 'defenseMounted') {
                     defenderStrength += Mounted_Defense_Value;
-                    var defenseSpearCheckbox = document.getElementById('attackSpear');
-                    if (defenseSpearCheckbox.checked) { /*checks if the opposing spear is already checked */
-                        attackerStrength += Spear_Bonus_Against_Mounted;
-                    }
+                    // const defenseSpearCheckbox = document.getElementById('attackSpear') as HTMLInputElement;
+                    // if(defenseSpearCheckbox.checked){   /*checks if the opposing spear is already checked */
+                    //     attackerStrength += Spear_Bonus_Against_Mounted;
+                    // }
                 }
             }
         });
