@@ -18,6 +18,16 @@
 	text-align: center;
 }
 
+.defender-strength, .attacker-strength {
+    display: inline-block;  /*makes the two divs level on a horizontal line*/
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+body {
+    background-color: #ddb874;
+}
+
 ul {
 	list-style-type: none;
 	padding: 0;

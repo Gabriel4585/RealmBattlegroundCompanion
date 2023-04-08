@@ -10,6 +10,8 @@ const Mounted_Defense_Value = 4;
 
 document.addEventListener('DOMContentLoaded', () => {
     const netStrengthParagraph = document.getElementById('net-strength');
+    const totalAttackBonus = document.getElementById('attacker-total-strength');
+    const totalDefenseBonus = document.getElementById('defender-total-strength');
   
     const attackerCheckboxes = document.querySelectorAll('.attacker input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
     const defenderCheckboxes = document.querySelectorAll('.defender input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
@@ -45,21 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 defenderStrength += Helmet_Defense_Value;
             }else if(checkbox.id === 'defenseSpear'){
                 defenderStrength += Spear_Defense_Value;
-                // const defenseMountedCheckbox = document.getElementById('attackMounted') as HTMLInputElement;
-                // if(defenseMountedCheckbox.checked){ /*checks if the attack is mounted is already checked */
-                //     defenderStrength += Spear_Bonus_Against_Mounted;
-                // }
             }else if(checkbox.id === 'defenseMounted'){
                 defenderStrength += Mounted_Defense_Value;
-                // const defenseSpearCheckbox = document.getElementById('attackSpear') as HTMLInputElement;
-                // if(defenseSpearCheckbox.checked){   /*checks if the opposing spear is already checked */
-                //     attackerStrength += Spear_Bonus_Against_Mounted;
-                // }
             }
         }
       });
-      netStrength = attackerStrength - defenderStrength;
-      netStrengthParagraph!.textContent = netStrength.toString();
+        netStrength = attackerStrength - defenderStrength;
+        netStrengthParagraph!.textContent = netStrength.toString();
+        totalAttackBonus!.textContent = attackerStrength.toString();
+        totalDefenseBonus!.textContent = defenderStrength.toString();
     }
   
     attackerCheckboxes.forEach((checkbox) => {

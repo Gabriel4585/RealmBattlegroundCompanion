@@ -8,6 +8,8 @@ var Mounted_Attack_Value = 4;
 var Mounted_Defense_Value = 4;
 document.addEventListener('DOMContentLoaded', function () {
     var netStrengthParagraph = document.getElementById('net-strength');
+    var totalAttackBonus = document.getElementById('attacker-total-strength');
+    var totalDefenseBonus = document.getElementById('defender-total-strength');
     var attackerCheckboxes = document.querySelectorAll('.attacker input[type="checkbox"]');
     var defenderCheckboxes = document.querySelectorAll('.defender input[type="checkbox"]');
     function updateNetStrength() {
@@ -43,22 +45,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 else if (checkbox.id === 'defenseSpear') {
                     defenderStrength += Spear_Defense_Value;
-                    // const defenseMountedCheckbox = document.getElementById('attackMounted') as HTMLInputElement;
-                    // if(defenseMountedCheckbox.checked){ /*checks if the attack is mounted is already checked */
-                    //     defenderStrength += Spear_Bonus_Against_Mounted;
-                    // }
                 }
                 else if (checkbox.id === 'defenseMounted') {
                     defenderStrength += Mounted_Defense_Value;
-                    // const defenseSpearCheckbox = document.getElementById('attackSpear') as HTMLInputElement;
-                    // if(defenseSpearCheckbox.checked){   /*checks if the opposing spear is already checked */
-                    //     attackerStrength += Spear_Bonus_Against_Mounted;
-                    // }
                 }
             }
         });
         netStrength = attackerStrength - defenderStrength;
         netStrengthParagraph.textContent = netStrength.toString();
+        totalAttackBonus.textContent = attackerStrength.toString();
+        totalDefenseBonus.textContent = defenderStrength.toString();
     }
     attackerCheckboxes.forEach(function (checkbox) {
         checkbox.addEventListener('click', updateNetStrength);
