@@ -5,6 +5,19 @@
 	height: 100vh;
 }
 
+.Odds {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 100vh;
+}
+
+.attackerOdds {
+    width: 30%;
+	padding: 20px;
+	border: 2px solid black;
+}
+
 .attacker, .defender {
 	width: 30%;
 	padding: 20px;
