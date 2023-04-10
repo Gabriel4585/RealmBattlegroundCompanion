@@ -66,4 +66,22 @@ document.addEventListener('DOMContentLoaded', () => {
       checkbox.addEventListener('click', updateNetStrength);
     });
   });
+
+const rangedCheckbox = document.getElementById("attackRanged") as HTMLInputElement;
+const smallRangedCheckbox = document.getElementById("attackSmallGun") as HTMLInputElement;
+smallRangedCheckbox.style.display = "none"; /*hide the small ranged checkbox by default */
+const smallRangedLabel = document.querySelector('label[for="attackSmallGun"]') as HTMLLabelElement;
+smallRangedLabel.style.display = "none"; /*hide the small ranged label by default */
+  
+rangedCheckbox.addEventListener("change", function() {  /*triggered when the ranged checkbox is changed(clicked) */
+  if (this.checked) {
+    smallRangedCheckbox.style.display = "block";
+    smallRangedCheckbox.checked = false;
+    smallRangedLabel.style.display = "block";
+  } else {
+    smallRangedCheckbox.style.display = "none";
+    smallRangedCheckbox.checked = false;
+    smallRangedLabel.style.display = "none";
+  }
+});
   

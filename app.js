@@ -63,3 +63,20 @@ document.addEventListener('DOMContentLoaded', function () {
         checkbox.addEventListener('click', updateNetStrength);
     });
 });
+var rangedCheckbox = document.getElementById("attackRanged");
+var smallRangedCheckbox = document.getElementById("attackSmallGun");
+smallRangedCheckbox.style.display = "none"; /*hide the small ranged checkbox by default */
+var smallRangedLabel = document.querySelector('label[for="attackSmallGun"]');
+smallRangedLabel.style.display = "none"; /*hide the small ranged label by default */
+rangedCheckbox.addEventListener("change", function () {
+    if (this.checked) {
+        smallRangedCheckbox.style.display = "block";
+        smallRangedCheckbox.checked = false;
+        smallRangedLabel.style.display = "block";
+    }
+    else {
+        smallRangedCheckbox.style.display = "none";
+        smallRangedCheckbox.checked = false;
+        smallRangedLabel.style.display = "none";
+    }
+});

@@ -1,8 +1,20 @@
+.header {
+	text-align: center;
+	margin-bottom: 5px;
+	color: #7499DD;
+}
+  
+.header h1 {
+	margin: 0;
+	font-size: 36px;
+}
+
 .container {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	height: 100vh;
+	margin-top: -200px;	/*negative margins move the element up*/
 }
 
 .Odds {
@@ -29,6 +41,7 @@
 	padding: 20px;
 	border: 2px solid black;
 	text-align: center;
+	margin-top: 10px;
 }
 
 .defender-strength, .attacker-strength {
@@ -40,6 +53,7 @@
 body {
     background-color: #ddb874;
 }
+
 
 ul {
 	list-style-type: none;
@@ -53,4 +67,28 @@ li {
 
 input[type="checkbox"] {
 	margin-right: 10px;
+}
+
+/* .subCheckboxLabel input[type="checkbox"], .subCheckboxLabel label {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.subCheckboxLabel input[type="checkbox"] {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.subCheckboxLabel label{
+	display: inline-block;
+	margin-left: 20px;
+	margin-bottom: 0;
+	vertical-align: middle;
+} */
+.subCheckboxLabel {
+	margin-left: 20px;
+  }
+  
+#attackSmallGun {
+	margin-left: 20px !important;
 }
