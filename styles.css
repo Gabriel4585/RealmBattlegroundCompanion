@@ -64,31 +64,3 @@ ul {
 li {
 	margin-bottom: 10px;
 }
-
-input[type="checkbox"] {
-	margin-right: 10px;
-}
-
-/* .subCheckboxLabel input[type="checkbox"], .subCheckboxLabel label {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.subCheckboxLabel input[type="checkbox"] {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.subCheckboxLabel label{
-	display: inline-block;
-	margin-left: 20px;
-	margin-bottom: 0;
-	vertical-align: middle;
-} */
-.subCheckboxLabel {
-	margin-left: 20px;
-  }
-  
-#attackSmallGun {
-	margin-left: 20px !important;
-}

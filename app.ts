@@ -7,7 +7,7 @@ const Spear_Bonus_Against_Mounted = 3;
 const Mounted_Attack_Value = 4;
 const Mounted_Defense_Value = 4;
 
-
+/*----------------- Bonus Calculations----------------- */
 document.addEventListener('DOMContentLoaded', () => {
     const netStrengthParagraph = document.getElementById('net-strength');
     const totalAttackBonus = document.getElementById('attacker-total-strength');
@@ -67,21 +67,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+/* ----------------------Reapearing Elements------------------------------- */
 const rangedCheckbox = document.getElementById("attackRanged") as HTMLInputElement;
+
 const smallRangedCheckbox = document.getElementById("attackSmallGun") as HTMLInputElement;
 smallRangedCheckbox.style.display = "none"; /*hide the small ranged checkbox by default */
 const smallRangedLabel = document.querySelector('label[for="attackSmallGun"]') as HTMLLabelElement;
 smallRangedLabel.style.display = "none"; /*hide the small ranged label by default */
+const mediumRangedCheckbox = document.getElementById("attackMediumGun") as HTMLInputElement;
+mediumRangedCheckbox.style.display = "none"; /*hide the medium ranged checkbox by default */
+const mediumRangedLabel = document.querySelector('label[for="attackMediumGun"]') as HTMLLabelElement;
+mediumRangedLabel.style.display = "none"; /*hide the medium ranged label by default */
   
 rangedCheckbox.addEventListener("change", function() {  /*triggered when the ranged checkbox is changed(clicked) */
   if (this.checked) {
-    smallRangedCheckbox.style.display = "block";
+    smallRangedCheckbox.style.display = "inline-block";
     smallRangedCheckbox.checked = false;
-    smallRangedLabel.style.display = "block";
+    smallRangedLabel.style.display = "inline-block";
+    mediumRangedCheckbox.style.display = "inline-block";
+    mediumRangedCheckbox.checked = false;
+    mediumRangedLabel.style.display = "inline-block";
   } else {
     smallRangedCheckbox.style.display = "none";
     smallRangedCheckbox.checked = false;
     smallRangedLabel.style.display = "none";
+    mediumRangedCheckbox.style.display = "none";
+    mediumRangedCheckbox.checked = false;
+    mediumRangedLabel.style.display = "none";
   }
 });
   

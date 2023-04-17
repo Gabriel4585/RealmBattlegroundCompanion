@@ -68,15 +68,25 @@ var smallRangedCheckbox = document.getElementById("attackSmallGun");
 smallRangedCheckbox.style.display = "none"; /*hide the small ranged checkbox by default */
 var smallRangedLabel = document.querySelector('label[for="attackSmallGun"]');
 smallRangedLabel.style.display = "none"; /*hide the small ranged label by default */
+var mediumRangedCheckbox = document.getElementById("attackMediumGun");
+mediumRangedCheckbox.style.display = "none"; /*hide the medium ranged checkbox by default */
+var mediumRangedLabel = document.querySelector('label[for="attackMediumGun"]');
+mediumRangedLabel.style.display = "none"; /*hide the medium ranged label by default */
 rangedCheckbox.addEventListener("change", function () {
     if (this.checked) {
-        smallRangedCheckbox.style.display = "block";
+        smallRangedCheckbox.style.display = "inline-block";
         smallRangedCheckbox.checked = false;
-        smallRangedLabel.style.display = "block";
+        smallRangedLabel.style.display = "inline-block";
+        mediumRangedCheckbox.style.display = "inline-block";
+        mediumRangedCheckbox.checked = false;
+        mediumRangedLabel.style.display = "inline-block";
     }
     else {
         smallRangedCheckbox.style.display = "none";
         smallRangedCheckbox.checked = false;
         smallRangedLabel.style.display = "none";
+        mediumRangedCheckbox.style.display = "none";
+        mediumRangedCheckbox.checked = false;
+        mediumRangedLabel.style.display = "none";
     }
 });
